@@ -92,8 +92,10 @@ export default function FeaturedCase() {
                 <div className="absolute inset-5 overflow-hidden rounded-[10px] border border-line-soft sm:inset-[22px]">
                   <Image
                     src={featuredCase.desktopImage}
-                    alt="Eagle Eye Trading Est. desktop homepage screenshot"
+                    alt="Eagle Eye Trading Est. — bilingual Next.js corporate website homepage, built by Ahmed Mohamed"
                     fill
+                    quality={90}
+                    placeholder="blur"
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   />
@@ -101,8 +103,10 @@ export default function FeaturedCase() {
                 <div className="absolute bottom-6 right-6 hidden h-[236px] w-[118px] overflow-hidden rounded-2xl border border-line-soft bg-panel shadow-[0_20px_50px_rgba(0,0,0,0.6)] sm:block">
                   <Image
                     src={featuredCase.mobileImage}
-                    alt="Eagle Eye Trading Est. mobile homepage screenshot"
+                    alt="Eagle Eye Trading Est. — mobile responsive Arabic/English RTL layout"
                     fill
+                    quality={90}
+                    placeholder="blur"
                     sizes="118px"
                     className="object-cover object-top"
                   />

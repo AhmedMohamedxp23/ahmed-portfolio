@@ -8,11 +8,12 @@ export default function Header() {
         <div className="h-8 w-8 shrink-0 rounded-[9px] bg-linear-to-br from-lime to-violet p-[1.5px]">
           <Image
             src="/avatar.png"
-            alt="Ahmed Mohamed, full-stack developer"
+            alt="Ahmed Mohamed — Full-Stack Next.js Developer in Riyadh"
             width={32}
             height={32}
+            quality={90}
+            loading="eager"
             className="block h-full w-full rounded-[7.5px] object-cover"
-            priority
           />
         </div>
         <div>

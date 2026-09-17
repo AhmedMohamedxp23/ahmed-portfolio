@@ -68,8 +68,8 @@ export async function OgImage() {
           lineHeight: 1.5,
         }}
       >
-        Next.js · TypeScript · Node.js · Three.js — bilingual (AR/EN)
-        products shipped end-to-end, brief to launch.
+        Next.js · React · TypeScript · Node.js — bilingual (AR/EN) websites
+        &amp; web apps shipped end-to-end, brief to launch.
       </span>
     </div>
   );

@@ -36,9 +36,10 @@ export default function Hero() {
             if that&apos;s the job.
           </h1>
           <p className="mb-7 max-w-[540px] text-[13.5px] leading-[1.85] text-muted">
-            Full-stack developer, two years shipping live client products.
-            Next.js · TypeScript · Node · Three.js. Master&apos;s in IT. I
-            measure what I ship: load time, maintainability, sales.
+            Full-stack developer based in Riyadh, Saudi Arabia, two years
+            shipping live client products. Next.js · React · TypeScript ·
+            Node.js · Three.js. Master&apos;s in IT. I measure what I ship:
+            load time, maintainability, sales.
           </p>
           <div className="mb-8 flex flex-wrap gap-2.5">
             <a
@@ -87,11 +88,12 @@ export default function Hero() {
             </div>
             <Image
               src="/cutout.png"
-              alt="Ahmed Mohamed, full-stack developer based in Riyadh"
+              alt="Ahmed Mohamed — Full-Stack Next.js & React Developer in Riyadh, Saudi Arabia"
               width={520}
               height={640}
+              quality={90}
+              preload
               className="absolute bottom-0 left-1/2 z-[2] w-[80%] -translate-x-1/2 drop-shadow-[0_26px_46px_rgba(0,0,0,0.65)]"
-              priority
             />
             {badges.map((b, i) => {
               const pos = [
