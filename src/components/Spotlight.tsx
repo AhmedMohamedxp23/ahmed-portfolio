@@ -10,28 +10,40 @@ export default function Spotlight({
   className?: string;
 }) {
   const zoneRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
 
   const handleMove = (e: PointerEvent<HTMLDivElement>) => {
     const zone = zoneRef.current;
     if (!zone) return;
-    const r = zone.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
+    const clientX = e.clientX;
+    const clientY = e.clientY;
 
-    zone.querySelectorAll<HTMLElement>("[data-glow]").forEach((g, i) => {
-      const d = 26 + i * 12;
-      g.style.translate = `${x * d}px ${y * d}px`;
-    });
-    zone.querySelectorAll<HTMLElement>("[data-parallax]").forEach((l) => {
-      const d = parseFloat(l.dataset.parallax ?? "12");
-      l.style.transform = `translate3d(${-x * d}px, ${-y * d}px, 0) rotateX(${
-        y * -3
-      }deg) rotateY(${x * 3}deg)`;
-      l.style.transition = "transform .5s cubic-bezier(.2,.7,.2,1)";
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      const r = zone.getBoundingClientRect();
+      const x = (clientX - r.left) / r.width - 0.5;
+      const y = (clientY - r.top) / r.height - 0.5;
+
+      zone.querySelectorAll<HTMLElement>("[data-glow]").forEach((g, i) => {
+        const d = 26 + i * 12;
+        g.style.translate = `${x * d}px ${y * d}px`;
+      });
+      zone.querySelectorAll<HTMLElement>("[data-parallax]").forEach((l) => {
+        const d = parseFloat(l.dataset.parallax ?? "12");
+        l.style.transform = `translate3d(${-x * d}px, ${-y * d}px, 0) rotateX(${
+          y * -3
+        }deg) rotateY(${x * 3}deg)`;
+        l.style.transition = "transform .5s cubic-bezier(.2,.7,.2,1)";
+      });
     });
   };
 
   const handleLeave = () => {
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
     const zone = zoneRef.current;
     if (!zone) return;
     zone
