@@ -222,17 +222,17 @@ export const capabilities = [
   { label: "Three.js · GSAP motion", tag: "production", value: 66 },
 ];
 
-export const testimonials = [
+export const proofPoints = [
   {
-    quote:
-      "Brief in, finished bilingual site out. We never had to chase him once.",
-    author: "— client, Eagle Eye Trading Est. · [placeholder, to confirm]",
+    label: "Eagle Eye Trading Est.",
+    fact: "Owned end-to-end — requirements to launch in 6 weeks, bilingual AR/EN with true RTL.",
+    url: "https://eagleeye-est.com",
     accent: "lime",
   },
   {
-    quote:
-      "We edit the whole site ourselves now — that was what we needed most.",
-    author: "— client, Amal Educational · [placeholder, to confirm]",
+    label: "Amal Educational",
+    fact: "Client edits every page themselves post-handoff — zero developer dependency for content.",
+    url: "https://amaledu.com",
     accent: "violet",
   },
 ];

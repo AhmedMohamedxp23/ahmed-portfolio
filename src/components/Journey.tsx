@@ -1,5 +1,5 @@
 import Reveal from "./Reveal";
-import { capabilities, testimonials, timeline } from "@/lib/data";
+import { capabilities, proofPoints, timeline } from "@/lib/data";
 
 export default function Journey() {
   return (
@@ -10,7 +10,7 @@ export default function Journey() {
         className="grid scroll-mt-20 gap-10 px-5 pb-14 pt-2.5 sm:px-9 lg:grid-cols-[1.04fr_.96fr] lg:gap-10"
       >
         <h2 id="path-heading" className="sr-only">
-          Experience, Capabilities &amp; Client Feedback
+          Experience, Capabilities &amp; Shipped Projects
         </h2>
         <div>
           <div className="mb-[22px] text-[11px] text-muted">
@@ -97,23 +97,37 @@ export default function Journey() {
           </div>
 
           <div className="mb-3.5 text-[11px] text-muted">
-            {"// client_feedback"}
+            {"// shipped_and_live"}
           </div>
           <div className="flex flex-col gap-2.5">
-            {testimonials.map((t) => (
-              <div
-                key={t.author}
-                className={`rounded-xl border border-line p-5 ${
-                  t.accent === "violet"
-                    ? "bg-linear-to-br from-violet/[0.07] to-transparent"
-                    : "bg-linear-to-br from-lime/[0.06] to-transparent"
+            {proofPoints.map((p) => (
+              <a
+                key={p.label}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group block rounded-xl border border-line p-5 transition-colors ${
+                  p.accent === "violet"
+                    ? "bg-linear-to-br from-violet/[0.07] to-transparent hover:border-violet/45"
+                    : "bg-linear-to-br from-lime/[0.06] to-transparent hover:border-lime/45"
                 }`}
               >
-                <p className="mb-2.5 text-[13px] leading-[1.75] text-ink">
-                  &ldquo;{t.quote}&rdquo;
+                <div className="mb-1.5 flex items-center justify-between">
+                  <span className="font-display text-[13.5px] font-semibold text-ink">
+                    {p.label}
+                  </span>
+                  <span
+                    className={`text-[10.5px] opacity-0 transition-opacity group-hover:opacity-100 ${
+                      p.accent === "violet" ? "text-violet" : "text-lime"
+                    }`}
+                  >
+                    visit live ↗
+                  </span>
+                </div>
+                <p className="text-[12.5px] leading-[1.7] text-muted-2">
+                  {p.fact}
                 </p>
-                <div className="text-[10.5px] text-muted">{t.author}</div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
